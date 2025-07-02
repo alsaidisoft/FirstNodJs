@@ -8,7 +8,7 @@
     "start": "cd backend && npm start",
     "lint": "next lint",
     "dev:backend": "cd backend && npm run dev",
-    "build:backend": "cd backend && npm install && npm run build",
+    "build:backend": "cd backend && npm install --production=false && npm run build",
     "start:backend": "cd backend && npm start",
     "dev:full": "concurrently \"npm run dev\" \"npm run dev:backend\"",
     "docker:build": "docker-compose build",
