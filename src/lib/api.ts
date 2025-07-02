@@ -1,7 +1,11 @@
 import axios, { AxiosResponse } from 'axios'
 import { APIResponse, PaginatedResponse } from '@/types'
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'
+// In production, this will use the same domain (for Heroku deployments)
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 
+  (typeof window !== 'undefined' && window.location.origin ? 
+    `${window.location.origin}/api` : 
+    'http://localhost:5000/api')
 
 // Create axios instance
 const api = axios.create({

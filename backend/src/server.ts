@@ -36,12 +36,14 @@ app.use(helmet({
     directives: {
       defaultSrc: ["'self'"],
       styleSrc: ["'self'", "'unsafe-inline'", "cdn.jsdelivr.net"],
-      scriptSrc: ["'self'", "'unsafe-inline'"]
+      scriptSrc: ["'self'", "'unsafe-inline'"],
+      connectSrc: ["'self'", "*"], // Allow connections to API on same domain
+      imgSrc: ["'self'", "data:", "res.cloudinary.com", "*"]
     }
   }
 }));
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+  origin: process.env.FRONTEND_URL || '*',
   credentials: true
 }));
 app.use(compression());
