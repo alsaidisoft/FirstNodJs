@@ -1,0 +1,561 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Next.js
+.next/
+out/
+build/
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+backend/.env
+backend/.env.local
+
+# Production
+dist/
+
+# Vercel
+.vercel
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Logs
+logs
+*.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+
+# nyc test coverage
+.nyc_output
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional stylelint cache
+.stylelintcache
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# parcel-bundler cache (https://parceljs.org/)
+.cache
+.parcel-cache
+
+# Serverless directories
+.serverless/
+
+# FuseBox cache
+.fusebox/
+
+# DynamoDB Local files
+.dynamodb/
+
+# TernJS port file
+.tern-port
+
+# Stores VSCode versions used for testing VSCode extensions
+.vscode-test
+
+# IDEs and editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+dev.db
+
+# Docker
+.dockerignore
+docker-compose.override.yml
+
+# Uploads and temp files
+uploads/
+temp/
+tmp/
+
+# Prisma
+prisma/migrations/
+prisma/dev.db
+prisma/dev.db-journal
+
+# Backend specific
+backend/dist/
+backend/build/
+backend/uploads/
+backend/logs/
+
+# Frontend specific
+public/uploads/
+
+# Testing
+.nyc_output
+coverage/
+test-results/
+playwright-report/
+
+# Cache directories
+.cache/
+.tmp/
+.temp/
+
+# Lock files (choose one)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# Cloudinary cache
+.cloudinary/
+
+# Local database backups
+*.sql
+*.dump
+
+# PM2 logs
+*.pm2.log
+
+# Webpack
+.webpack/
+
+# Turbo
+.turbo
+
+# Additional development tools
+.vite/
+.rollup.cache/
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# Email templates build
+email-templates/build/
+
+# Redis dump files
+dump.rdb
+
+# SSL certificates
+*.pem
+*.crt
+*.key
+certificates/
+
+# Backup files
+*.bak
+*.backup
+*.orig
+
+# Temporary API documentation
+api-docs/temp/
+
+# Local development overrides
+docker-compose.local.yml
+.local/
+
+# Generated API types
+src/types/api-generated.ts
+backend/src/types/api-generated.ts
+
+# Storybook build outputs
+storybook-static/
+
+# Cypress
+cypress/videos/
+cypress/screenshots/
+cypress/downloads/
+
+# Playwright
+test-results/
+playwright/.cache/
+
+# Bundle analyzer
+.bundle-analyzer/
+
+# Sentry
+.sentryclirc
+
+# Environment file examples (keep the templates)
+!.env.example
+!.env.local.example
+!backend/.env.example
+
+# MacOS specific
+.AppleDouble
+.LSOverride
+
+# Windows specific
+*.lnk
+[Dd]esktop.ini
+$RECYCLE.BIN/
+
+# Linux specific
+.fuse_hidden*
+.directory
+.Trash-*
+
+# JetBrains IDEs
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Vim
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# Sublime Text
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+*.sublime-workspace
+*.sublime-project
+
+# Local Netlify folder
+.netlify
+
+# AWS
+.aws/
+
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+
+# Kubernetes
+*.kubeconfig
+
+# Monitoring and observability
+grafana/data/
+prometheus/data/
+
+# Additional files that should never be in version control
+
+# Secrets and API keys
+*.env.production
+*.env.staging
+.env.*.local
+secrets/
+secret.*
+private-key*
+api-keys*
+.secrets/
+
+# User-specific files
+.user
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build artifacts and generated files
+*.exe
+*.o
+*.so
+*.dll
+*.dylib
+*.obj
+*.pdb
+*.cache
+*.tmp
+*.temp
+thumbs.db
+
+# Runtime and process files
+*.pid.lock
+.pm2/
+
+# IDE and editor temporary files
+.vscode/settings.json
+.vscode/launch.json
+.vscode/extensions.json
+.vscode/tasks.json
+*.code-workspace
+.history/
+.ionide/
+
+# Temporary and swap files
+*.tmp
+*.swp
+*.swo
+*.swn
+*~
+.#*
+\#*#
+
+# Package manager files (if you want to ignore locks)
+# Uncomment the ones you want to ignore
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# System files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Application data
+.sessions/
+.tokens/
+uploads/
+downloads/
+attachments/
+media/uploads/
+public/uploads/
+static/uploads/
+
+# Log files
+*.log
+logs/
+log/
+*.log.*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+*.sql
+*.dump
+*.mdb
+*.accdb
+data/
+db/
+database/
+
+# Cache and temporary directories
+.cache/
+cache/
+.tmp/
+.temp/
+tmp/
+temp/
+node_modules/.cache/
+
+# Build and distribution
+build/
+dist/
+out/
+.next/
+.nuxt/
+.output/
+.vercel/
+.netlify/
+
+# Testing
+coverage/
+.nyc_output/
+test-results/
+e2e-results/
+playwright-report/
+cypress/videos/
+cypress/screenshots/
+jest-coverage/
+
+# Environment and configuration
+.env
+.env.*
+!.env.example
+!.env.template
+config.local.*
+local.config.*
+
+# Docker and containers
+.docker/
+docker-compose.override.yml
+.dockerignore
+
+# Cloud and deployment
+.aws/
+.gcp/
+.azure/
+.terraform/
+*.tfstate*
+.pulumi/
+
+# Backup and temporary files
+*.bak
+*.backup
+*.orig
+*.rej
+*.patch
+
+# Archive files
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+
+# Certificate and key files
+*.pem
+*.key
+*.crt
+*.cert
+*.p12
+*.pfx
+certificates/
+ssl/
+
+# Miscellaneous
+.DS_Store
+.sass-cache/
+.connect.lock
+.lock-wscript
+.grunt/
+.node_repl_history
+.yarn-integrity
+.eslintcache
+.parcel-cache
+
+# Gradle files (should not be in Node.js project)
+.gradle/
+gradle/
+gradlew
+gradlew.bat
+build.gradle*
+settings.gradle*
+*.gradle
+
+# Java files (should not be in Node.js project)
+*.java
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+target/
+.mvn/
+
+# Kotlin files
+*.kt
+*.kts
+
+# Android files
+*.apk
+*.aab
+local.properties
+proguard/
+
+# IDE generated files
+*.iml
+*.ipr
+*.iws
+.idea/
+*.code-workspace
+
+# Token files
+*.tk
+*.token
+
+# JDK and SDK
+.jdks/
+.android/
+.m2/
+
+# Library manager
+.librarymanager/
+
+# Oracle and RedHat specific
+.oracle_jre_usage/
+.redhat/
+
+# Maven
+pom.xml
+.mvn/
+mvnw
+mvnw.cmd
+
+# Additional system directories that should never be in any repo
+AppData/
+Documents/
+Downloads/
+Music/
+Videos/
+Pictures/
+Contacts/
+Favorites/
+Links/
+OneDrive/
+Saved\ Games/
+Searches/
+
+# Windows system files
+NTUSER.DAT*
+ntuser.dat*
+ntuser.ini
+Desktop.ini
+thumbs.db
+Thumbs.db
+*.lnk
+
+# Temporary and cache directories
+.cache/
+cache/
+.tmp/
+.temp/
+tmp/
+temp/

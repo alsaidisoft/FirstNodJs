@@ -1,0 +1,165 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  phone     String?
+  password  String?
+  role      UserRole @default(CITIZEN)
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  feedbacks     Feedback[]
+  responses     Response[]
+  notifications Notification[]
+
+  @@map("users")
+}
+
+model Feedback {
+  id          String         @id @default(cuid())
+  title       String
+  description String
+  category    String
+  status      FeedbackStatus @default(PENDING)
+  priority    Priority       @default(MEDIUM)
+  location    Json? // { lat: number, lng: number, address: string }
+  images      String[] // Array of image URLs
+  isAnonymous Boolean        @default(false)
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+
+  // Relations
+  userId    String?
+  user      User?        @relation(fields: [userId], references: [id])
+  responses Response[]
+  votes     Vote[]
+  tags      FeedbackTag[]
+
+  @@map("feedbacks")
+}
+
+model Response {
+  id        String   @id @default(cuid())
+  content   String
+  isOfficial Boolean @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  feedbackId String
+  feedback   Feedback @relation(fields: [feedbackId], references: [id], onDelete: Cascade)
+  userId     String
+  user       User     @relation(fields: [userId], references: [id])
+
+  @@map("responses")
+}
+
+model Vote {
+  id     String   @id @default(cuid())
+  type   VoteType
+  userId String
+  feedbackId String
+  feedback   Feedback @relation(fields: [feedbackId], references: [id], onDelete: Cascade)
+  createdAt  DateTime @default(now())
+
+  @@unique([userId, feedbackId])
+  @@map("votes")
+}
+
+model Tag {
+  id    String @id @default(cuid())
+  name  String @unique
+  color String @default("#6B7280")
+
+  // Relations
+  feedbacks FeedbackTag[]
+
+  @@map("tags")
+}
+
+model FeedbackTag {
+  feedbackId String
+  tagId      String
+  feedback   Feedback @relation(fields: [feedbackId], references: [id], onDelete: Cascade)
+  tag        Tag      @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@id([feedbackId, tagId])
+  @@map("feedback_tags")
+}
+
+model Notification {
+  id        String           @id @default(cuid())
+  title     String
+  message   String
+  type      NotificationType
+  isRead    Boolean          @default(false)
+  createdAt DateTime         @default(now())
+
+  // Relations
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("notifications")
+}
+
+model Department {
+  id          String  @id @default(cuid())
+  name        String  @unique
+  description String?
+  email       String?
+  phone       String?
+  isActive    Boolean @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("departments")
+}
+
+enum UserRole {
+  CITIZEN
+  ADMIN
+  MODERATOR
+  DEPARTMENT_HEAD
+}
+
+enum FeedbackStatus {
+  PENDING
+  UNDER_REVIEW
+  IN_PROGRESS
+  RESOLVED
+  REJECTED
+  CLOSED
+}
+
+enum Priority {
+  LOW
+  MEDIUM
+  HIGH
+  URGENT
+}
+
+enum VoteType {
+  UP
+  DOWN
+}
+
+enum NotificationType {
+  FEEDBACK_UPDATE
+  NEW_RESPONSE
+  SYSTEM_ALERT
+  ACCOUNT_UPDATE
+}

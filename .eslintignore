@@ -1,0 +1,13 @@
+# Ignore backend directory
+backend/
+node_modules/
+.next/
+dist/
+build/
+coverage/
+*.log
+.env*
+docker-compose.yml
+Dockerfile*
+nginx/
+setup.sh
