@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build && npm run build:backend",
-    "start": "npm run start:backend",
+    "start": "cd backend && npm start",
     "lint": "next lint",
     "dev:backend": "cd backend && npm run dev",
     "build:backend": "cd backend && npm install && npm run build",
@@ -14,7 +14,7 @@
     "docker:build": "docker-compose build",
     "docker:up": "docker-compose up -d",
     "docker:down": "docker-compose down",
-    "heroku-postbuild": "bash setup-env.sh && npm run build:frontend && npm run build:backend",
+    "heroku-postbuild": "bash heroku-setup.sh && npm run build:backend",
     "build:frontend": "next build"
   },
   "dependencies": {

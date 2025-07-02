@@ -7,6 +7,15 @@ import rateLimit from 'express-rate-limit';
 import dotenv from 'dotenv';
 import path from 'path';
 
+// Load environment variables
+dotenv.config();
+
+// Check if DATABASE_URL exists
+if (!process.env.DATABASE_URL) {
+  console.error('⚠️ DATABASE_URL is not set. The application may not work correctly.');
+  console.error('Please set the DATABASE_URL environment variable in Heroku dashboard or .env file.');
+}
+
 // Route imports
 import authRoutes from './routes/auth';
 import feedbackRoutes from './routes/feedback';
@@ -17,8 +26,6 @@ import uploadRoutes from './routes/upload';
 // Middleware imports
 import { errorHandler } from './middleware/errorHandler';
 import { authenticate } from './middleware/auth';
-
-dotenv.config();
 
 const app: Express = express();
 const PORT = process.env.PORT || 5000;
