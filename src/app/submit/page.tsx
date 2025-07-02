@@ -14,10 +14,14 @@ const schema = yup.object({
   description: yup.string().required('Description is required').min(20, 'Description must be at least 20 characters'),
   category: yup.string().required('Category is required'),
   location: yup.object({
-    address: yup.string(),
-    lat: yup.number(),
-    lng: yup.number()
-  })
+    address: yup.string().optional(),
+    lat: yup.number().optional(),
+    lng: yup.number().optional()
+  }).optional(),
+  images: yup.mixed().required(),
+  isAnonymous: yup.boolean().default(false)
+})
+
 })
 
 interface FeedbackForm {
@@ -25,9 +29,9 @@ interface FeedbackForm {
   description: string
   category: string
   location?: {
-    address: string
-    lat: number
-    lng: number
+    address?: string
+    lat?: number
+    lng?: number
   }
   images: File[]
   isAnonymous: boolean
