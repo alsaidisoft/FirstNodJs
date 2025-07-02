@@ -4,14 +4,18 @@
   "description": "A modern citizen feedback and engagement platform",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "build": "npm run build:backend && next build",
+    "start": "npm run start:backend",
     "lint": "next lint",
     "dev:backend": "cd backend && npm run dev",
+    "build:backend": "cd backend && npm install && npm run build",
+    "start:backend": "cd backend && npm start",
     "dev:full": "concurrently \"npm run dev\" \"npm run dev:backend\"",
     "docker:build": "docker-compose build",
     "docker:up": "docker-compose up -d",
-    "docker:down": "docker-compose down"
+    "docker:down": "docker-compose down",
+    "heroku-postbuild": "npm run build:backend && npm run build:frontend",
+    "build:frontend": "next build"
   },
   "dependencies": {
     "next": "^14.0.0",
@@ -42,5 +46,9 @@
     "concurrently": "^8.2.0",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
   }
 }
